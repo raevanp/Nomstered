@@ -1,3 +1,40 @@
+
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <%= image_tag 'Slider6.jpg', class: 'img-fluid' %>
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Build your style with thrift gems</h3>
+    </div>
+  </div>
+  <div class="carousel-item">
+    <%= image_tag 'Slider5.jpg', class: 'img-fluid' %>
+    <div class="carousel-caption d-none d-md-block">
+      <h3>It's Vintage Sweater Season</h3>
+    </div>
+  </div>
+    <div class="carousel-item">
+      <%= image_tag 'Slider4.jpg', class: 'img-fluid' %>
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Best Spots in Dallas for Vintage Photoshoot Items</h3>
+      </div>
+    </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
 <%= @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
     <h1><%= link_to place.name, place_path(place) %></h1><br />
@@ -5,6 +42,7 @@
     <p><%= place.description %></p><br />
 
     <% if place.user.present? %>
+      <small><%= place.user.email %></small>
     <% end %>
 
   <% if place.comments.present? %>
@@ -14,8 +52,9 @@
           <b><%= place.comments.last.humanized_rating %></b> -
           <% end %>
           <%= place.comments.last.message %>
-      </blockquote>
-    </div>
-  <% end %>
- </div>
+            <small><%= place.comments.last.user.email %></small>
+        </blockquote>
+      </div>
+    <% end %>
+  </div>
 <% end %>
