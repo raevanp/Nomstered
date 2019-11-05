@@ -77,7 +77,6 @@
   </div>
 </div>
 
-
 <div class="col-10 offset-1">
   <h1 class="float-left">Comments</h1>
   <!-- Button trigger modal -->
@@ -102,5 +101,10 @@
   <% end %>
 </div>
 
+<%= simple_form_for @photo, url: '#' do |f| %>
+  <%= f.input :text %>
+  <%= f.input :picture %>
+  <%= f.submit "Add Photo", class: 'btn btn-primary' %>
+<% end %>
 
 
