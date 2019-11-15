@@ -4,6 +4,10 @@
   <br/><br/>
   <p><%= @place.description %></p>
 
+<% @place.photos.each do |photo| %>
+<%= image_tag photo.picture.url, class: 'img-fluid' %>
+<% end %>
+
 
 <% if @place.latitude.present? && @place.longitude.present? %>
 
